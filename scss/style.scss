@@ -1,0 +1,98 @@
+html, body {
+    background: url('../img/bg.jpg');
+    height: 100vh;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', cursive;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+.panel {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    gap: 1.25em;
+    background: -webkit-linear-gradient(315deg, #f5d020 0%, #f53803 74%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 auto;
+}
+
+button {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 1em;
+    border: none;
+    color: #000;
+    -webkit-text-fill-color: #000;
+    border-radius: 20px;
+    background: -webkit-linear-gradient(315deg, #f5d020 0%, #f53803 74%);
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    transition: transform .15s ease;
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    background-image: url('../img/ground.png');
+}
+
+.square {
+    width: 25px;
+    height: 25px;
+}
+
+.snake {
+    box-sizing: border-box;
+    background: url('../img/snake.png');
+    &.died {
+        opacity: 0;
+        animation: died .5s ease-out;
+    }
+}
+
+.apple {
+    background-image: url('../img/apple.png');
+    z-index: 999;
+    animation: fade-in 1s ease;
+}
+
+.fire {
+    background: url('../img/fire.png') no-repeat center;
+    animation: fire .45s infinite;
+}
+
+@keyframes fade-in {
+    0% {opacity: 0}
+    25% {opacity: .5}
+    50% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@keyframes fire {
+    from {transform: rotateY(0)}
+    to {transform: rotateY(-30deg)}
+}
+
+@keyframes died {
+    0% {opacity: 0}
+    25% {opacity: .5}
+    50% {opacity: 1}
+    75% {opacity: .5}
+    100% {opacity: 0}
+}
