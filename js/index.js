@@ -3,7 +3,7 @@ const scores = document.getElementById('score')
 const scoreBoard = document.getElementById('score-board')
 const startBtn = document.getElementById('start')
 const bestScoreBoard = document.getElementById('best')
-const width = 20
+let width = 20
 let score
 let squares = []
 let bestScore = 0
@@ -20,7 +20,7 @@ function createGameBoard() {
     for (let i = 0; i < width*width; i++) {
         const square = document.createElement('div')
         square.classList.add('square')
-        if(i <= 19 || i % width === 0 || i > 380 || i % width === 19) square.classList.add('fire')
+        if(i <= width - 1 || i % width === 0 || i > width * width - width || i % width === width - 1) square.classList.add('fire')
         squares.push(square)
         grid.appendChild(square)
     }
@@ -48,10 +48,24 @@ function startGame() {
     
     function snakeMove() {
         document.addEventListener('keyup', (e) => {
-            if (e.code === 'ArrowDown') {if(move !== -width) move = width}
-            else if (e.code === 'ArrowUp') {if(move !== width) move = -width}
-            else if (e.code === 'ArrowRight'){if(move !== -1) move = 1}
-            else if (e.code === 'ArrowLeft'){if(move !== 1) move = -1}
+            switch(e.code) {
+                case 'ArrowDown': 
+                if(move !== -width) move = width
+                
+                break
+                case 'ArrowUp':
+                if(move !== width) move = -width
+
+                break
+                case 'ArrowRight':
+                if(move !== -1) move = 1
+
+                break
+                case 'ArrowLeft':
+                if(move !== 1) move = -1
+                    
+                break
+            }
         })
     
         snakeTail = currentSnake[0]
