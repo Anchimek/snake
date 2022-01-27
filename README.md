@@ -1,6 +1,6 @@
 # Simple snake game in pure JS
 
-https://anchimek.github.io/snake/
+https://anchimek.github.io/snake-game/
 
 Use ⬅️ ⬆️ ➡️ ⬇️ to play
 
