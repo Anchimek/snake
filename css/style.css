@@ -96,6 +96,39 @@ button:hover, button:focus {
           animation: fire .45s infinite;
 }
 
+.mobile {
+  display: none;
+  height: 100vh;
+}
+
+.mobile-text {
+  display: flex;
+  align-items: center;
+  padding: .5em;
+  margin: 0;
+  font-size: 1.5rem;
+  text-transform: none;
+  line-height: 2;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+@media all and (max-width: 1000px) {
+  html,
+  body {
+    background: url(/img/bluescreen.png);
+    background-size: cover;
+    margin: 0;
+  }
+  .grid,
+  .panel {
+      display: none;
+  }
+  .mobile {
+      display: flex;
+  }
+}
+
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
