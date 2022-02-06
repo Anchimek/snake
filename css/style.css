@@ -116,7 +116,7 @@ button:hover, button:focus {
 @media all and (max-width: 1000px) {
   html,
   body {
-    background: url(/img/bluescreen.png);
+    background: url(../img/bluescreen.png);
     background-size: cover;
     margin: 0;
   }
